@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "strict": true,
+    "sourceMap": true,
+    
+    "paths": {
+      "@Components/*": ["./src/components/*"],
+      "@Containers/*": ["./src/containers/*"],
+      "@Utilities/*": ["./src/utils/*"],
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
+    },
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
