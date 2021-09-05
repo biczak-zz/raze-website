@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-
+import ThemeSwitcher from './ThemeSwitcher';
 interface LinkTabProps {
   label?: string;
   href?: string;
@@ -21,6 +21,7 @@ const LinkTab = (props: LinkTabProps) => (
 
 interface TopNavProps {
   changeHandler: (event: React.ChangeEvent<{}>, value: number) => void;
+  switchHandler: (event: React.ChangeEvent<{}>, value: string) => void;
   pages: LinkTabProps[];
   selected: number;
 }
@@ -32,17 +33,27 @@ const createLinkTabs = (pages: LinkTabProps[]) => {
 };
 
 const TopNav = (props: TopNavProps) => (
-  <Box sx={{ width: '100%', backgroundColor: 'primary.main' }}>
+  <Box
+    sx={{
+      width: '100%',
+      backgroundColor: 'primary.main',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
     <Tabs
       value={props.selected}
       onChange={props.changeHandler}
       aria-label="navigation tabs"
-      centered
       textColor="secondary"
+      centered
       indicatorColor="secondary"
+      sx={{ margin: 'auto' }}
     >
       {createLinkTabs(props.pages)}
     </Tabs>
+    <ThemeSwitcher changeHandler={props.switchHandler} />
   </Box>
 );
 

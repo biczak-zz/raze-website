@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+const razeTheme = createTheme({
   palette: {
     primary: {
       light: '#af59ff ',
@@ -14,7 +14,12 @@ const theme = createTheme({
       dark: '#0069AC',
       contrastText: '#252244',
     },
+    text: {
+      primary: '#ffffff',
+      secondary: '#000000',
+    },
   },
+  typography: {},
 });
 
-export default theme;
+export default razeTheme;

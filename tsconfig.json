@@ -12,7 +12,6 @@
     ],
     "strict": true,
     "sourceMap": true,
-    
     "paths": {
       "@Components/*": ["./src/components/*"],
       "@Containers/*": ["./src/containers/*"],
