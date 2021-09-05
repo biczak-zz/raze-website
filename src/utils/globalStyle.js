@@ -8,6 +8,7 @@ html,body {
   padding: 0;
   border: 0;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 `;
 

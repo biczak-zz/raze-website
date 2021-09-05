@@ -1,7 +1,9 @@
 import React, { createContext, useState, useMemo, useContext } from 'react';
-import { ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import TopNav from '@Components/TopNav';
+import Container from '@mui/material/Container';
+import TopBar from '@Components/TopBar';
+import Content from '@Containers/Content';
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 // const ColorModeContext =
@@ -37,10 +39,6 @@ const App = (): JSX.Element => {
             dark: '#0069AC',
             contrastText: '#252244',
           },
-          text: {
-            primary: '#ffffff',
-            secondary: '#000000',
-          },
         },
       }),
     [mode],
@@ -74,19 +72,22 @@ const App = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <ColorModeContext.Provider value={colorMode}>
-        <ThemeProvider theme={razeTheme}>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={razeTheme}>
+        <Container maxWidth={false} disableGutters>
           <CssBaseline />
-          <TopNav
+          <TopBar
             pages={pages}
             selected={page}
             switchHandler={themeMode.toggleColorMode}
             changeHandler={changePage}
           />
-        </ThemeProvider>
-      </ColorModeContext.Provider>
-    </div>
+          <Container maxWidth={false}>
+            <Content />
+          </Container>
+        </Container>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 };
 
