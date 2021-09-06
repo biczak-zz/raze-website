@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import TopBar from '@Components/TopBar';
 import Content from '@Containers/Content';
+import bgVideo from '../../public/assets/ambient_los_santos.mp4';
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 // const ColorModeContext =
@@ -20,6 +21,12 @@ const App = (): JSX.Element => {
     }),
     [],
   );
+
+  const videoStyle = {
+    position: 'fixed',
+    zIndex: -1,
+    width: '100%',
+  };
 
   const razeTheme = useMemo(
     () =>
@@ -75,6 +82,9 @@ const App = (): JSX.Element => {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={razeTheme}>
         <Container maxWidth={false} disableGutters>
+          <video autoPlay loop muted style={videoStyle}>
+            <source src={bgVideo} type="video/mp4" />
+          </video>
           <CssBaseline />
           <TopBar
             pages={pages}

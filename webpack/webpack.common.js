@@ -21,6 +21,15 @@ const config = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.(mp4|svg|png|jpe?g|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[hash].[ext]',
+          },
+        },
+      },
     ],
   },
   plugins: [
